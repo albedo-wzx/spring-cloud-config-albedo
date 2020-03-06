@@ -1,12 +1,28 @@
 server:
   port: 8769
+#  本地化配置
+#spring:
+#  application:
+#    name: config-server
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/shared
+#  profiles:
+#    active: native
+###############################################
+# git 远程配置文件
 spring:
   application:
     name: config-server
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shared
-  profiles:
-    active: native
+        git:
+          uri: https://github.com/albedo-wzx/spring_cloud_config
+          search-paths: config_file
+      label: master
+
+
+
