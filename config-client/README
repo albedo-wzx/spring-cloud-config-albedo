@@ -1,0 +1,28 @@
+新增spring cloud bus，使用kafka进行动态刷新配置
+
+具体配置如下
+1.
+config-server和config-client新增bus-kafka依赖
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bus-kafka</artifactId>
+    <version>2.2.0.RELEASE</version>
+</dependency>
+
+2.
+config-server的application.yml新增配置
+spring.bus.refresh.enabled=true
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer=spring-cloud-bus
+
+config-client的bootstrap.yml新增配置
+spring.bus.refresh.enabled=true
+spring.kafka.bootstrap-servers=localhost:9092
+
+3.
+config-client在需要刷新配置类新增注解@RefreshScope
+
+4.
+如果修改类配置，则需要在config-server接口使用post请求
+http://localhost:8769/actuator/bus-refresh
+

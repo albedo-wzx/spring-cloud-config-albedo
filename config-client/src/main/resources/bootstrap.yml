@@ -8,9 +8,22 @@ spring:
         enabled: true
         service-id: config-server
       fail-fast: true
+    # 开启bus刷新
+    bus:
+      refresh:
+        enabled: true
   profiles:
     active: dev
+  #设置kafka服务端口
+  kafka:
+    bootstrap-servers: localhost:9092
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+#关闭安全验证
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

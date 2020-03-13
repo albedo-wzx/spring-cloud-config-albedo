@@ -10,10 +10,21 @@ spring:
           uri: https://github.com/albedo-wzx/spring_cloud_config
           search-paths: config_file
       label: master
+    # 配置消息总线
+    bus:
+      refresh:
+        enabled: true
+  # 配置kafka消息读取
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer: spring-cloud-bus
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-
-
+#为方便，不对项目进行安全验证
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
