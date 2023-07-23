@@ -13,7 +13,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <spring.cloud.netflix.version>2.2.1.RELEASE</spring.cloud.netflix.version>
+        <spring.cloud.netflix.version>2.2.4.RELEASE</spring.cloud.netflix.version>
     </properties>
 
     <dependencies>
